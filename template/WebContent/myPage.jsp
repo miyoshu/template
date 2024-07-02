@@ -10,15 +10,13 @@ pageEncoding="UTF-8"%>
 	<meta http-equiv="imagetoolbar" content="no" />
 	<meta name="description" content="" />
 	<meta name="keywords" content="" />
-	<title>buyItemConfirm画面</title>
+	<title>MyPage画面</title>
 	<style type="text/css">
 	/* ========TAG LAYOUT======== */
-
 		body{
 			margin:0;
 			padding:0;
-			line-height:1.6;
-			letter-spacing:1px;
+			line-height:1.6; letter-spacing:1px;
 			font-family:Verdana, Helvetica, sans-serif;
 			font-size:12px;
 			color:#333;
@@ -46,8 +44,9 @@ pageEncoding="UTF-8"%>
 		#footer{
 			width:100%;
 			height: 80px;
-			background-color: black; clear:both;
+			background-color:black; clear:both;
 		}
+
 	</style>
 </head>
 <body>
@@ -57,10 +56,11 @@ pageEncoding="UTF-8"%>
 	</div>
 	<div id="main">
 		<div id="top">
-			<p>BuyItemConfirm</p>
+			<p>MyPage</p>
 		</div>
 		<div>
-			<s:form action="BuyItemConfirmAction">
+		<s:if test="session.message == ''">
+			<h3>ご購入情報は以下になります。</h3>
 			<table>
 				<tr>
 					<td>
@@ -69,15 +69,13 @@ pageEncoding="UTF-8"%>
 					<td>
 						<s:property value="session.buyItem_name" />
 					</td>
-
 				</tr>
 				<tr>
-
 					<td>
 						値段
 					</td>
 					<td>
-						<s:property value="session.buyItem_price" />
+						<s:property value="session.total_price" />
 						<span>
 							円
 						</span>
@@ -88,7 +86,7 @@ pageEncoding="UTF-8"%>
 						購入個数
 					</td>
 					<td>
-						<s:property value="session.stock" />
+						<s:property value="session.total_count" />
 						<span>
 							個
 						</span>
@@ -99,16 +97,30 @@ pageEncoding="UTF-8"%>
 						支払い方法
 					</td>
 					<td>
-						<s:property value="session.pay" />
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<s:submit value="完了"/>
+						<s:property value="session.total_payment" />
 					</td>
 				</tr>
 			</table>
+			<s:form action="MyPageAction">
+				<input type="hidden" name="deleteFlg" value="1">
+				<s:submit value="削除" method="delete" />
 			</s:form>
+		</s:if>
+		<s:if test="session.message != null">
+			<h3>
+				<s:property value="session.message"/>
+			</h3>
+		</s:if>
+			<div>
+				<br>
+				<span>
+					前画面に戻る場合は
+				</span>
+				<a href='<s:url action="LoginAction" />'>ログアウト</a>
+				<span>
+					をお願いします
+				</span>
+			</div>
 		</div>
 	</div>
 	<div id="footer">

@@ -9,14 +9,12 @@
 <package name="com.diworksdev.template.action" extends="struts-default">
 
 <!-- HomeAction-->
-<action name="HomeAction" class="com.diworksdev.template.action.HomeAction"
-method="execute">
+<action name="HomeAction" class="com.diworksdev.template.action.HomeAction" method="execute">
 <result name="success">home.jsp</result>
 </action>
 
 <!-- LoginAction-->
-<action name="LoginAction" class="com.diworksdev.template.action.LoginAction"
-method="execute">
+<action name="LoginAction" class="com.diworksdev.template.action.LoginAction" method="execute">
 <result name="success">buyItem.jsp</result>
 <result name="error">login.jsp</result>
 </action>
@@ -38,20 +36,17 @@ method="execute">
 </action>
 
 <!-- BuyItemAction-->
-<action name="BuyItemAction" class="com.diworksdev.
-template.action.BuyItemAction" method="execute">
+<action name="BuyItemAction" class="com.diworksdev.template.action.BuyItemAction" method="execute">
 <result name="success">buyItemConfirm.jsp</result>
 </action>
 
 <!-- BuyItemConfirmAction-->
-<action name="BuyItemConfirmAction" class="com.diworksdev.
-template.action.BuyItemConfirmAction" method="execute">
+<action name="BuyItemConfirmAction" class="com.diworksdev.template.action.BuyItemConfirmAction" method="execute">
 <result name="success">buyItemComplete.jsp</result>
 </action>
 
 <!-- MyPageAction-->
-<action name="MyPageAction" class="com.diworksdev.
-template.action.MyPageAction" method="execute">
+<action name="MyPageAction" class="com.diworksdev.template.action.MyPageAction" method="execute">
 <result name="success">myPage.jsp</result>
 </action>
 
